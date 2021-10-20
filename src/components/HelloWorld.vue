@@ -1,6 +1,11 @@
 <template>
-  <div class="hello">
-    {{ news }}
+  <div>
+    <div>
+      {{ test }}
+    </div>
+    <div>
+      {{ news }}
+    </div>
   </div>
 </template>
 
@@ -9,20 +14,37 @@ export default {
   name: "HelloWorld",
   data() {
     return {
+      test: "",
       news: []
     };
   },
-  mounted() {
+  created() {
+    this.getTest();
     this.getNews();
   },
   methods: {
-    getNews() {
+    getTest() {
       this.axios
-        .get('/')
+        .get("/")
         .then(res => {
+          console.log(res.data);
+          this.test = res.data;
+        })
+        .catch(err => {
+          console.error("err");
+        });
+    },
+    getNews() {
+      console.log("getnews");
+      this.axios
+        .get("/111")
+        .then((res) => {
           console.log("connect");
           console.log(res.data);
           this.news = res.data;
+        })
+        .catch(err => {
+          console.error("err");
         });
     }
   }

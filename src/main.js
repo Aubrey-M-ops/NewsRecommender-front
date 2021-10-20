@@ -5,16 +5,16 @@ import App from "./App";
 import router from "./router";
 import axios from "axios";
 import VueAxios from "vue-axios";
-import Qs from "qs";
+
+axios.defaults.baseURL ='http://localhost:8080/recommend';
 
 Vue.prototype.axios = axios;
-Vue.prototype.qs = Qs;
 
 Vue.config.productionTip = false;
 
 Vue.use(VueAxios, axios);
 
-axios.defaults.baseURL ='http://localhost:8080/recommend';
+
 
 /* eslint-disable no-new */
 new Vue({
