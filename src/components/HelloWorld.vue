@@ -19,6 +19,7 @@ export default {
     };
   },
   created() {
+    console.log("我是wr");
     this.getTest();
     this.getNews();
   },
