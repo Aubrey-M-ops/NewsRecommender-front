@@ -46,13 +46,13 @@ export default {
       userConfig: {
         header: ["序号", "新闻内容"],
         data: [
-          ["1", "1"],
-          ["2", "2"],
-          ["1", "1"],
-          ["2", "2"],
-          ["1", "1"],
-          ["2", "2"],
-          ["1", "1"],
+          ["1", "西飞集团收购奥地利FACC公司完成股权交割'"],
+          ["2", "西飞集团收购奥地利FACC公司完成股权交割'"],
+          ["1", "西飞集团收购奥地利FACC公司完成股权交割'"],
+          ["2", "西飞集团收购奥地利FACC公司完成股权交割'"],
+          ["1", "西飞集团收购奥地利FACC公司完成股权交割'"],
+          ["2", "西飞集团收购奥地利FACC公司完成股权交割'"],
+          ["1", "西飞集团收购奥地利FACC公司完成股权交割'"],
           ["2", "2"],
           ["1", "1"],
           ["2", "2"],
@@ -66,7 +66,8 @@ export default {
         headerBGC: "transparent",
         oddRowBGC: "transparent",
         evenRowBGC: "transparent",
-         align: ["center"]
+         align: ["left"],
+         columnWidth:[80]
       },
        hotConfig: {
         header: ["序号", "新闻内容"],
@@ -91,7 +92,8 @@ export default {
         headerBGC: "transparent",
         oddRowBGC: "transparent",
         evenRowBGC: "transparent",
-        align: ["center"]
+        align: ["left"],
+         columnWidth:[80]
       },
       news: []
     };
@@ -172,7 +174,8 @@ h3 {
 }
 .scroll-box {
   position: absolute;
-  left: 20px;
+  left: 40px;
+  top: 5px;
 }
 .main {
   display: flex;
