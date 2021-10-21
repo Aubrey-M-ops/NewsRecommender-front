@@ -15,7 +15,9 @@
     </div>
 
     <div class="userid">
-      <h3 style="display:inline-block">userID:</h3>
+      <div class="id">
+        <h3 style="display:inline-block">userID:</h3>
+      </div>
       <div class="input">
         <el-input
           type="text"
@@ -25,6 +27,12 @@
           show-word-limit
         >
         </el-input>
+      </div>
+      <div class="search">
+        <el-button icon="el-icon-search" circle></el-button>
+      </div>
+      <div class="news">
+        <h3>热点新闻</h3>
       </div>
     </div>
     <div class="main">
@@ -194,6 +202,11 @@ h3 {
   width: 1000px;
   margin:30px 270px;
 }
+.id{
+  display: inline-block;
+  /* align-self:flex-start; */
+  margin-right: 10px;
+}
 .input {
   display: inline-block;
   align-self: baseline;
@@ -203,6 +216,10 @@ h3 {
 .search {
   display: inline-block;
   margin-left: 10px;
+}
+.news {
+  display: inline-block;
+  margin-left: 420px;
 }
 .scroll-box {
   position: absolute;
