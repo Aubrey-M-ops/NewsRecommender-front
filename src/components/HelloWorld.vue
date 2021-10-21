@@ -12,25 +12,20 @@
       <div class="input">
         <el-input
           type="text"
-          placeholder="请输入内容"
+          placeholder="请输入用户ID"
           v-model="text"
           maxlength="10"
           show-word-limit
         >
         </el-input>
       </div>
-      <div class="search">
-        <el-button icon="el-icon-search" circle></el-button>
-      </div>
-      <div class="news">
-        <h3>热点新闻</h3>
-      </div>
+      
     </div>
     <div class="main">
       <div class="box-container">
         <div class="userbox">
           <dv-border-box-1>
-            <dv-scroll-board :config="config" class="scroll-box" />
+            <dv-scroll-board :config="userConfig" class="scroll-box" />
           </dv-border-box-1>
         </div>
         <div class="decoration">
@@ -38,7 +33,7 @@
         </div>
         <div class="hotbox">
           <dv-border-box-1>
-            <dv-scroll-board :config="config" class="scroll-box" />
+            <dv-scroll-board :config="hotConfig" class="scroll-box" />
           </dv-border-box-1>
         </div>
       </div>
@@ -52,14 +47,38 @@ export default {
   data() {
     return {
       test: "",
+      userConfig: {
+        header: ["序号", "新闻内容"],
+        data: [
+          ["1", "1"],
+          ["2", "2"],
+          ["1", "1"],
+          ["2", "2"],
+          ["1", "1"],
+          ["2", "2"],
+          ["1", "1"],
+          ["2", "2"],
+          ["1", "1"],
+          ["2", "2"],
+          ["1", "1"],
+          ["2", "2"],
+          ["1", "1"],
+          ["2", "2"]
+        ],
+        rowNum: 7,
+        hoverPause: true,
+        headerBGC: "transparent",
+        oddRowBGC: "transparent",
+        evenRowBGC: "transparent"
+      },
       news: []
     };
   },
-  beforeCreate() {
-    document
-      .querySelector("body")
-      .setAttribute("style", "background-color:#282C34");
-  },
+  // beforeCreate() {
+  //   document
+  //     .querySelector("body")
+  //     .setAttribute("style", "background-color:#282C34");
+  // },
   created() {
     console.log("我是wr");
     this.getTest();
@@ -67,28 +86,28 @@ export default {
   },
   methods: {
     getTest() {
-      this.axios
-        .get("/")
-        .then(res => {
-          console.log(res.data);
-          this.test = res.data;
-        })
-        .catch(err => {
-          console.error("err");
-        });
+      // this.axios
+      //   .get("/")
+      //   .then(res => {
+      //     console.log(res.data);
+      //     this.test = res.data;
+      //   })
+      //   .catch(err => {
+      //     console.error("err");
+      //   });
     },
     getNews() {
       console.log("getnews");
-      this.axios
-        .get("/111")
-        .then(res => {
-          console.log("connect");
-          console.log(res.data);
-          this.news = res.data;
-        })
-        .catch(err => {
-          console.error("err");
-        });
+      // this.axios
+      //   .get("/111")
+      //   .then(res => {
+      //     console.log("connect");
+      //     console.log(res.data);
+      //     this.news = res.data;
+      //   })
+      //   .catch(err => {
+      //     console.error("err");
+      //   });
     }
   }
 };
@@ -100,9 +119,6 @@ h1 {
   text-align: center;
   color: white;
 }
-h2 {
-  font-weight: normal;
-}
 h3 {
   color: white;
   font-size: 24px;
@@ -110,10 +126,11 @@ h3 {
 .container {
   height: 100%;
   width: 100%;
+  background-color: #282c34;
 }
 .userbox {
   height: 480px;
-  width: 360px;
+  width: 500px;
   display: inline-block;
   /* margin-right: 280px; */
 }
@@ -126,7 +143,7 @@ h3 {
 }
 .hotbox {
   height: 480px;
-  width: 360px;
+  width: 500px;
   display: inline-block;
 }
 .userid {
@@ -143,13 +160,10 @@ h3 {
   display: inline-block;
   margin-left: 10px;
 }
-.news{
-  display: inline-block;
-  margin-left: 390px;
-}
 .scroll-box {
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  top: 20px;
+  left: 20px;
 }
 .main {
   display: flex;
