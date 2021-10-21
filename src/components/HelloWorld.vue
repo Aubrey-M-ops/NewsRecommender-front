@@ -19,6 +19,7 @@
         >
         </el-input>
       </div>
+      
     </div>
     <div class="main">
       <div class="box-container">
@@ -26,6 +27,9 @@
           <dv-border-box-1>
             <dv-scroll-board :config="userConfig" class="scroll-box" />
           </dv-border-box-1>
+        </div>
+        <div class="decoration">
+          <dv-decoration-2 :reverse="true" style="width:5px;height:150px;" />
         </div>
         <div class="hotbox">
           <dv-border-box-1>
@@ -156,7 +160,14 @@ h3 {
   height: 480px;
   width: 500px;
   display: inline-block;
-  margin-right: 200px;
+  /* margin-right: 280px; */
+}
+.decoration{
+  width: 10px;
+  height: 480px;
+  display: inline-block;
+  margin-left: 140px;
+  margin-right: 140px;
 }
 .hotbox {
   height: 480px;
@@ -164,13 +175,18 @@ h3 {
   display: inline-block;
 }
 .userid {
-  width: 300px;
-  /* display: inline-block; */
+  width: 1000px;
+  margin-left: 270px;
 }
 .input {
   display: inline-block;
   align-self: baseline;
   margin-bottom: 30px;
+  margin-left: 10px;
+}
+.search {
+  display: inline-block;
+  margin-left: 10px;
 }
 .scroll-box {
   position: absolute;
@@ -180,7 +196,11 @@ h3 {
 .main {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items:center;
   height: 600px;
 }
+/* .box-container{
+  display: flex;
+  justify-content:space-evenly;
+} */
 </style>
