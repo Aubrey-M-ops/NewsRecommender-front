@@ -6,7 +6,14 @@
     <div>
       {{ news }}
     </div> -->
-    <h1>新闻推荐系统</h1>
+    <div class="header-container">
+       <dv-decoration-12 style="position:absolute;width:150px;height:150px;display:inline-block;top: 30px;
+    left: 30px;" />
+      <dv-decoration-1 style="width:200px;height:50px;margin-left:50px;" class="top-dec" />
+      <h1>News Recommender</h1>
+      <dv-decoration-1 style="width:200px;height:50px;" class="top-dec"/>
+    </div>
+
     <div class="userid">
       <div class="id">
         <h3 style="display:inline-block">userID:</h3>
@@ -38,7 +45,8 @@
     <div class="main">
       <div class="box-container">
         <div class="userbox">
-          <dv-border-box-1>
+          <dv-decoration-11 class="box-title">FOR USER</dv-decoration-11>
+          <dv-border-box-1 class="scroll-container">
             <dv-scroll-board :config="userConfig" class="scroll-box" />
           </dv-border-box-1>
         </div>
@@ -46,7 +54,8 @@
           <dv-decoration-2 :reverse="true" style="width:5px;height:150px;" />
         </div>
         <div class="hotbox">
-          <dv-border-box-1>
+          <dv-decoration-11 class="box-title">HOT SPOT</dv-decoration-11>
+          <dv-border-box-1 class="scroll-container">
             <dv-scroll-board :config="hotConfig" class="scroll-box" />
           </dv-border-box-1>
         </div>
@@ -70,7 +79,6 @@ export default {
     return {
       test: "",
       userConfig: {
-        header: ["序号", "新闻内容"],
         data: [
           ["1", "西飞集团收购奥地利FACC公司完成股权交割'"],
           ["2", "西飞集团收购奥地利FACC公司完成股权交割'"],
@@ -87,7 +95,7 @@ export default {
           ["1", "1"],
           ["2", "2"]
         ],
-        rowNum: 7,
+        rowNum: 8,
         hoverPause: true,
         headerBGC: "transparent",
         oddRowBGC: "transparent",
@@ -96,7 +104,6 @@ export default {
         columnWidth: [80]
       },
       hotConfig: {
-        header: ["序号", "新闻内容"],
         data: [
           ["1", "1"],
           ["2", "2"],
@@ -166,8 +173,10 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h1 {
-  text-align: center;
-  color: white;
+    text-align: center;
+    color: white;
+    display: inline-block;
+    margin: 0 80px;
 }
 h3 {
   color: white;
@@ -178,27 +187,35 @@ h3 {
   width: 100%;
   background-color: #282c34;
 }
+.header-container{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+    justify-content: center;
+}
 .userbox {
   height: 480px;
   width: 500px;
   display: inline-block;
+  position: relative;
   /* margin-right: 280px; */
 }
 .decoration {
   width: 10px;
   height: 480px;
   display: inline-block;
-  margin-left: 80px;
-  margin-right: 80px;
+  margin-left: 140px;
+  margin-right: 140px;
 }
 .hotbox {
   height: 480px;
   width: 500px;
   display: inline-block;
+  position: relative;
 }
 .userid {
-  /* width: 1000px; */
-  margin-left: 230px;
+width: 1000px;
+  margin:30px 270px;
 }
 .id{
   display: inline-block;
@@ -230,7 +247,8 @@ h3 {
 .scroll-box {
   position: absolute;
   left: 40px;
-  top: 5px;
+  top: 36px;
+  height: 420px;
 }
 .main {
   display: flex;
@@ -249,5 +267,23 @@ h3 {
 .bottom-dv8-re{
   display: inline-block;
   margin-left: 700px;
+}
+.top-dec{
+  display: inline-block;
+  margin-top:  20px;
+}
+.box-title{
+  width:200px;
+  height:60px;
+  color: white;
+  position: absolute;
+  left: 30%;
+}
+.scroll-container{
+  position: absolute;
+  top: 18px;
+}
+.scroll-box .rows{
+  height: 420px;
 }
 </style>
