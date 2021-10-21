@@ -8,7 +8,9 @@
     </div> -->
     <h1>新闻推荐系统</h1>
     <div class="userid">
-      <h3 style="display:inline-block">userID:</h3>
+      <div class="id">
+        <h3 style="display:inline-block">userID:</h3>
+      </div>
       <div class="input">
         <el-input
           type="text"
@@ -19,7 +21,12 @@
         >
         </el-input>
       </div>
-      
+      <div class="search">
+        <el-button icon="el-icon-search" circle></el-button>
+      </div>
+      <div class="news">
+        <h3>热点新闻</h3>
+      </div>
     </div>
     <div class="main">
       <div class="box-container">
@@ -50,6 +57,32 @@ export default {
       userConfig: {
         header: ["序号", "新闻内容"],
         data: [
+          ["1", "西飞集团收购奥地利FACC公司完成股权交割'"],
+          ["2", "西飞集团收购奥地利FACC公司完成股权交割'"],
+          ["1", "西飞集团收购奥地利FACC公司完成股权交割'"],
+          ["2", "西飞集团收购奥地利FACC公司完成股权交割'"],
+          ["1", "西飞集团收购奥地利FACC公司完成股权交割'"],
+          ["2", "西飞集团收购奥地利FACC公司完成股权交割'"],
+          ["1", "西飞集团收购奥地利FACC公司完成股权交割'"],
+          ["2", "2"],
+          ["1", "1"],
+          ["2", "2"],
+          ["1", "1"],
+          ["2", "2"],
+          ["1", "1"],
+          ["2", "2"]
+        ],
+        rowNum: 7,
+        hoverPause: true,
+        headerBGC: "transparent",
+        oddRowBGC: "transparent",
+        evenRowBGC: "transparent",
+        align: ["left"],
+        columnWidth: [80]
+      },
+      hotConfig: {
+        header: ["序号", "新闻内容"],
+        data: [
           ["1", "1"],
           ["2", "2"],
           ["1", "1"],
@@ -69,16 +102,18 @@ export default {
         hoverPause: true,
         headerBGC: "transparent",
         oddRowBGC: "transparent",
-        evenRowBGC: "transparent"
+        evenRowBGC: "transparent",
+        align: ["left"],
+        columnWidth: [80]
       },
       news: []
     };
   },
-  // beforeCreate() {
-  //   document
-  //     .querySelector("body")
-  //     .setAttribute("style", "background-color:#282C34");
-  // },
+  beforeCreate() {
+    document
+      .querySelector("body")
+      .setAttribute("style", "background-color:#282C34");
+  },
   created() {
     console.log("我是wr");
     this.getTest();
@@ -134,12 +169,12 @@ h3 {
   display: inline-block;
   /* margin-right: 280px; */
 }
-.decoration{
+.decoration {
   width: 10px;
   height: 480px;
   display: inline-block;
-  margin-left: 140px;
-  margin-right: 140px;
+  margin-left: 80px;
+  margin-right: 80px;
 }
 .hotbox {
   height: 480px;
@@ -149,6 +184,11 @@ h3 {
 .userid {
   width: 1000px;
   margin-left: 270px;
+}
+.id{
+  display: inline-block;
+  /* align-self:flex-start; */
+  margin-right: 10px;
 }
 .input {
   display: inline-block;
@@ -160,15 +200,19 @@ h3 {
   display: inline-block;
   margin-left: 10px;
 }
+.news {
+  display: inline-block;
+  margin-left: 420px;
+}
 .scroll-box {
   position: absolute;
-  top: 20px;
-  left: 20px;
+  left: 40px;
+  top: 5px;
 }
 .main {
   display: flex;
   flex-direction: column;
-  align-items:center;
+  align-items: center;
   height: 600px;
 }
 /* .box-container{
