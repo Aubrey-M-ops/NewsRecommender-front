@@ -27,7 +27,7 @@
       </div>
       <div class="decoration-6-left">
         <dv-decoration-6 
-        style="width:150px;height:30px;display:inline-block;margin-left:250px;margin-top:0px;"/>
+        style="width:150px;height:30px;display:inline-block; margin-left: 360px;margin-top:0px;"/>
       </div>
       <div class="news">
         <h3>热点新闻</h3>
@@ -208,8 +208,7 @@ h3 {
   position: relative;
 }
 .userid {
-width: 1000px;
-  margin:30px 270px;
+  margin: 30px 100px 30px 160px;
 }
 .id{
   display: inline-block;
@@ -255,12 +254,14 @@ width: 1000px;
   justify-content:space-evenly;
 } */
 .bottom-dv8{
-  display: inline-block;
-  margin-left: 100px;
+  /* display: inline-block; */
+  margin-top: 20px;
+  float: left;
 }
 .bottom-dv8-re{
-  display: inline-block;
-  margin-left: 700px;
+  /* display: inline-block; */
+  margin-top: 20px;
+  float: right;
 }
 .top-dec{
   display: inline-block;
