@@ -1,14 +1,8 @@
 <template>
   <div class="container">
-    <!-- <div>
-      {{ test }}
-    </div>
-    <div>
-      {{ news }}
-    </div> -->
     <div class="header-container">
-       <dv-decoration-12 style="position:absolute;width:150px;height:150px;display:inline-block;top: 30px;
-    left: 30px;" />
+       <!-- <dv-decoration-12 style="position:absolute;width:150px;height:150px;display:inline-block;top: 30px;
+    left: 30px;" /> -->
       <dv-decoration-1 style="width:200px;height:50px;margin-left:50px;" class="top-dec" />
       <h1>News Recommender</h1>
       <dv-decoration-1 style="width:200px;height:50px;" class="top-dec"/>
