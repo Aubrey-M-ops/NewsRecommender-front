@@ -12,7 +12,7 @@ export default {
       news: []
     };
   },
-  mounted() {
+  created() {
     this.getNews();
   },
   methods: {
