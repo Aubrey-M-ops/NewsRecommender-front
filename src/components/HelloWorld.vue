@@ -65,16 +65,42 @@ export default {
         hoverPause: true,
         headerBGC: "transparent",
         oddRowBGC: "transparent",
-        evenRowBGC: "transparent"
+        evenRowBGC: "transparent",
+         align: ["center"]
+      },
+       hotConfig: {
+        header: ["序号", "新闻内容"],
+        data: [
+          ["1", "1"],
+          ["2", "2"],
+          ["1", "1"],
+          ["2", "2"],
+          ["1", "1"],
+          ["2", "2"],
+          ["1", "1"],
+          ["2", "2"],
+          ["1", "1"],
+          ["2", "2"],
+          ["1", "1"],
+          ["2", "2"],
+          ["1", "1"],
+          ["2", "2"]
+        ],
+        rowNum: 7,
+        hoverPause: true,
+        headerBGC: "transparent",
+        oddRowBGC: "transparent",
+        evenRowBGC: "transparent",
+        align: ["center"]
       },
       news: []
     };
   },
-  // beforeCreate() {
-  //   document
-  //     .querySelector("body")
-  //     .setAttribute("style", "background-color:#282C34");
-  // },
+  beforeCreate() {
+    document
+      .querySelector("body")
+      .setAttribute("style", "background-color:#282C34");
+  },
   created() {
     console.log("我是wr");
     this.getTest();
@@ -128,7 +154,7 @@ h3 {
   height: 480px;
   width: 500px;
   display: inline-block;
-  margin-right: 280px;
+  margin-right: 200px;
 }
 .hotbox {
   height: 480px;
@@ -146,7 +172,6 @@ h3 {
 }
 .scroll-box {
   position: absolute;
-  top: 20px;
   left: 20px;
 }
 .main {
