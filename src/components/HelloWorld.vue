@@ -8,28 +8,37 @@
     </div> -->
     <h1>新闻推荐系统</h1>
     <div class="userid">
-        <h3 style="display:inline-block">userID:</h3>
-        <div class="input">
-          <el-input
-            type="text"
-            placeholder="请输入内容"
-            v-model="text"
-            maxlength="10"
-            show-word-limit
-          >
-          </el-input>
-        </div>
+      <h3 style="display:inline-block">userID:</h3>
+      <div class="input">
+        <el-input
+          type="text"
+          placeholder="请输入内容"
+          v-model="text"
+          maxlength="10"
+          show-word-limit
+        >
+        </el-input>
       </div>
+      <div class="search">
+        <el-button icon="el-icon-search" circle></el-button>
+      </div>
+      <div class="news">
+        <h3>热点新闻</h3>
+      </div>
+    </div>
     <div class="main">
       <div class="box-container">
         <div class="userbox">
           <dv-border-box-1>
-            <dv-scroll-board :config="config" class="scroll-box"/>
+            <dv-scroll-board :config="config" class="scroll-box" />
           </dv-border-box-1>
+        </div>
+        <div class="decoration">
+          <dv-decoration-2 :reverse="true" style="width:5px;height:150px;" />
         </div>
         <div class="hotbox">
           <dv-border-box-1>
-            <dv-scroll-board :config="config" class="scroll-box"/>
+            <dv-scroll-board :config="config" class="scroll-box" />
           </dv-border-box-1>
         </div>
       </div>
@@ -106,7 +115,14 @@ h3 {
   height: 480px;
   width: 360px;
   display: inline-block;
-  margin-right: 280px;
+  /* margin-right: 280px; */
+}
+.decoration{
+  width: 10px;
+  height: 480px;
+  display: inline-block;
+  margin-left: 140px;
+  margin-right: 140px;
 }
 .hotbox {
   height: 480px;
@@ -114,22 +130,35 @@ h3 {
   display: inline-block;
 }
 .userid {
-  width: 300px;
-  /* display: inline-block; */
+  width: 1000px;
+  margin-left: 270px;
 }
 .input {
   display: inline-block;
   align-self: baseline;
   margin-bottom: 30px;
+  margin-left: 10px;
 }
-.scroll-box{
+.search {
+  display: inline-block;
+  margin-left: 10px;
+}
+.news{
+  display: inline-block;
+  margin-left: 390px;
+}
+.scroll-box {
   width: 100%;
   height: 100%;
 }
 .main {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items:center;
   height: 600px;
 }
+/* .box-container{
+  display: flex;
+  justify-content:space-evenly;
+} */
 </style>
