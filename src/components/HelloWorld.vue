@@ -24,8 +24,15 @@
       <div class="search">
         <el-button icon="el-icon-search" circle></el-button>
       </div>
+      <div class="decoration-6-left">
+        <dv-decoration-6 
+        style="width:150px;height:30px;display:inline-block;margin-left:250px;margin-top:0px;"/>
+      </div>
       <div class="news">
         <h3>热点新闻</h3>
+      </div>
+      <div class="decoration-6-right">
+        <dv-decoration-6 style="width:150px;height:30px;" />
       </div>
     </div>
     <div class="main">
@@ -43,6 +50,14 @@
             <dv-scroll-board :config="hotConfig" class="scroll-box" />
           </dv-border-box-1>
         </div>
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="bottom-dv8">
+        <dv-decoration-8 style="width:300px;height:50px;" />
+      </div>
+      <div class="bottom-dv8-re">
+        <dv-decoration-8 :reverse="true" style="width:300px;height:50px;" />
       </div>
     </div>
   </div>
@@ -182,8 +197,8 @@ h3 {
   display: inline-block;
 }
 .userid {
-  width: 1000px;
-  margin-left: 270px;
+  /* width: 1000px; */
+  margin-left: 230px;
 }
 .id{
   display: inline-block;
@@ -200,9 +215,17 @@ h3 {
   display: inline-block;
   margin-left: 10px;
 }
+.decoration-6-left{
+  display: inline-block;
+  margin-left: 40px;
+}
 .news {
   display: inline-block;
-  margin-left: 420px;
+  /* margin-left: 420px; */
+}
+.decoration-6-right{
+  display: inline-block;
+  margin-top: 20px;
 }
 .scroll-box {
   position: absolute;
@@ -213,10 +236,18 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 600px;
+  height: 480px;
 }
 /* .box-container{
   display: flex;
   justify-content:space-evenly;
 } */
+.bottom-dv8{
+  display: inline-block;
+  margin-left: 100px;
+}
+.bottom-dv8-re{
+  display: inline-block;
+  margin-left: 700px;
+}
 </style>
