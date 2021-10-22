@@ -1,5 +1,9 @@
 <template>
   <div class="container">
+    <div>
+      {{news}}
+    </div>
+    <div>{{test}}</div>
     <div class="header-container">
        <dv-decoration-12 style="position:absolute;width:150px;height:150px;display:inline-block;top: 30px;
     left: 30px;" />
@@ -122,7 +126,7 @@ export default {
         align: ["left"],
         columnWidth: [80]
       },
-      news: []
+      news: [],
     };
   },
   beforeCreate() {
@@ -137,28 +141,28 @@ export default {
   },
   methods: {
     getTest() {
-      // this.axios
-      //   .get("/")
-      //   .then(res => {
-      //     console.log(res.data);
-      //     this.test = res.data;
-      //   })
-      //   .catch(err => {
-      //     console.error("err");
-      //   });
+      this.axios
+        .get("/")
+        .then(res => {
+          console.log(res.data);
+          this.test = res.data;
+        })
+        .catch(err => {
+          console.error("err");
+        });
     },
     getNews() {
       console.log("getnews");
-      // this.axios
-      //   .get("/111")
-      //   .then(res => {
-      //     console.log("connect");
-      //     console.log(res.data);
-      //     this.news = res.data;
-      //   })
-      //   .catch(err => {
-      //     console.error("err");
-      //   });
+      this.axios
+        .get("/111")
+        .then(res => {
+          console.log("connect");
+          console.log(res.data);
+          this.news = res.data;
+        })
+        .catch(err => {
+          console.error("err");
+        });
     }
   }
 };
