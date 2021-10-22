@@ -1,9 +1,9 @@
 <template>
   <div class="container">
-    <div>
+    <div style="color:white">
       {{news}}
     </div>
-    <div>{{test}}</div>
+    <div style="color:white">{{test}}</div>
     <div class="header-container">
        <dv-decoration-12 style="position:absolute;width:150px;height:150px;display:inline-block;top: 30px;
     left: 30px;" />
