@@ -25,7 +25,7 @@
         <el-input
           type="text"
           placeholder="请输入用户ID"
-          v-model="text"
+          v-model="userID"
           maxlength="10"
           show-word-limit
         >
@@ -82,22 +82,25 @@ export default {
   data() {
     return {
       test: "",
+      userId : "",
+      userNews:[],
+      hotNews:[],
       userConfig: {
         data: [
-          ["1", "西飞集团收购奥地利FACC公司完成股权交割'"],
-          ["2", "西飞集团收购奥地利FACC公司完成股权交割'"],
-          ["1", "西飞集团收购奥地利FACC公司完成股权交割'"],
-          ["2", "西飞集团收购奥地利FACC公司完成股权交割'"],
-          ["1", "西飞集团收购奥地利FACC公司完成股权交割'"],
-          ["2", "西飞集团收购奥地利FACC公司完成股权交割'"],
-          ["1", "西飞集团收购奥地利FACC公司完成股权交割'"],
-          ["2", "2"],
-          ["1", "1"],
-          ["2", "2"],
-          ["1", "1"],
-          ["2", "2"],
-          ["1", "1"],
-          ["2", "2"]
+          // ["1", "西飞集团收购奥地利FACC公司完成股权交割'"],
+          // ["2", "西飞集团收购奥地利FACC公司完成股权交割'"],
+          // ["1", "西飞集团收购奥地利FACC公司完成股权交割'"],
+          // ["2", "西飞集团收购奥地利FACC公司完成股权交割'"],
+          // ["1", "西飞集团收购奥地利FACC公司完成股权交割'"],
+          // ["2", "西飞集团收购奥地利FACC公司完成股权交割'"],
+          // ["1", "西飞集团收购奥地利FACC公司完成股权交割'"],
+          // ["2", "2"],
+          // ["1", "1"],
+          // ["2", "2"],
+          // ["1", "1"],
+          // ["2", "2"],
+          // ["1", "1"],
+          // ["2", "2"]
         ],
         rowNum: 8,
         hoverPause: true,
@@ -157,18 +160,25 @@ export default {
           console.error("err");
         });
     },
-    getNews() {
-      console.log("getnews");
+    getUserNews() {
+      console.log("getUSERnews");
       this.axios
-        .get("/111")
+        .get("/"+this.userId)
         .then(res => {
           console.log("connect");
           console.log(res.data);
-          this.news = res.data;
+          const news = res.data
+          for(let i=0; i<news.length; i++){
+            this.userNews.push[news[i].id,news[i].title]
+          }
+
         })
         .catch(err => {
           console.error("err");
         });
+    },
+    getHotNews() {
+
     }
   }
 };
