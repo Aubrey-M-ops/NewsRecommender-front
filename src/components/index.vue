@@ -69,7 +69,7 @@
 
 <script>
 export default {
-  name: "HelloWorld",
+  name: "index",
   data() {
     return {
       test: "",
@@ -214,7 +214,7 @@ h3 {
 }
 .userid {
   position: relative;
-  margin: 60px 100px 0px 196px;
+  margin: 60px 100px 0px 400px;
 }
 .id {
   display: inline-block;
@@ -265,13 +265,11 @@ h3 {
 } */
 .bottom-dv8 {
   /* display: inline-block; */
-  margin-top: 20px;
-  float: left;
+  margin-top: 40px;
 }
 .bottom-dv8-re {
   /* display: inline-block; */
-  margin-top: 20px;
-  float: right;
+  margin-top: 40px;
 }
 .top-dec {
   display: inline-block;
@@ -293,5 +291,12 @@ h3 {
 }
 .el-input__icon:hover {
   cursor: pointer;
+}
+.bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 90%;
+  margin: auto;
 }
 </style>
