@@ -1,15 +1,20 @@
 <template>
   <div class="container">
     <div style="color:white">
-      {{news}}
+      {{ news }}
     </div>
-    <div style="color:white">{{test}}</div>
+    <div style="color:white">{{ test }}</div>
     <div class="header-container">
-       <dv-decoration-12 style="position:absolute;width:150px;height:150px;display:inline-block;top: 30px;
-    left: 30px;" />
-      <dv-decoration-1 style="width:200px;height:50px;margin-left:50px;" class="top-dec" />
+      <dv-decoration-12
+        style="position:absolute;width:150px;height:150px;display:inline-block;top: 30px;
+    left: 30px;"
+      />
+      <dv-decoration-1
+        style="width:200px;height:50px;margin-left:50px;"
+        class="top-dec"
+      />
       <h1>News Recommender</h1>
-      <dv-decoration-1 style="width:200px;height:50px;" class="top-dec"/>
+      <dv-decoration-1 style="width:200px;height:50px;" class="top-dec" />
     </div>
 
     <div class="userid">
@@ -30,8 +35,9 @@
         <el-button icon="el-icon-search" circle></el-button>
       </div>
       <div class="decoration-6-left">
-        <dv-decoration-6 
-        style="width:150px;height:30px;display:inline-block; margin-left: 360px;margin-top:0px;"/>
+        <dv-decoration-6
+          style="width:150px;height:30px;display:inline-block; margin-left: 309px;margin-top:0px;"
+        />
       </div>
       <div class="news">
         <h3>热点新闻</h3>
@@ -126,7 +132,7 @@ export default {
         align: ["left"],
         columnWidth: [80]
       },
-      news: [],
+      news: []
     };
   },
   beforeCreate() {
@@ -171,10 +177,10 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h1 {
-    text-align: center;
-    color: white;
-    display: inline-block;
-    margin: 0 80px;
+  text-align: center;
+  color: white;
+  display: inline-block;
+  margin: 0 80px;
 }
 h3 {
   color: white;
@@ -185,11 +191,11 @@ h3 {
   width: 100%;
   background-color: #282c34;
 }
-.header-container{
+.header-container {
   display: flex;
   align-items: center;
   flex-direction: row;
-    justify-content: center;
+  justify-content: center;
 }
 .userbox {
   height: 480px;
@@ -202,8 +208,7 @@ h3 {
   width: 10px;
   height: 480px;
   display: inline-block;
-  margin-left: 140px;
-  margin-right: 140px;
+  margin: 0 80px;
 }
 .hotbox {
   height: 480px;
@@ -212,9 +217,10 @@ h3 {
   position: relative;
 }
 .userid {
-  margin: 30px 100px 30px 160px;
+  position: relative;
+  margin: 60px 100px 0px 160px;
 }
-.id{
+.id {
   display: inline-block;
   /* align-self:flex-start; */
   margin-right: 10px;
@@ -229,17 +235,21 @@ h3 {
   display: inline-block;
   margin-left: 10px;
 }
-.decoration-6-left{
+.decoration-6-left {
+  position: relative;
   display: inline-block;
   margin-left: 40px;
+  top: 12px;
 }
 .news {
   display: inline-block;
   /* margin-left: 420px; */
 }
-.decoration-6-right{
+.decoration-6-right {
+  position: relative;
   display: inline-block;
   margin-top: 20px;
+  top: 12px;
 }
 .scroll-box {
   position: absolute;
@@ -257,32 +267,32 @@ h3 {
   display: flex;
   justify-content:space-evenly;
 } */
-.bottom-dv8{
+.bottom-dv8 {
   /* display: inline-block; */
   margin-top: 20px;
   float: left;
 }
-.bottom-dv8-re{
+.bottom-dv8-re {
   /* display: inline-block; */
   margin-top: 20px;
   float: right;
 }
-.top-dec{
+.top-dec {
   display: inline-block;
-  margin-top:  20px;
+  margin-top: 20px;
 }
-.box-title{
-  width:200px;
-  height:60px;
+.box-title {
+  width: 200px;
+  height: 60px;
   color: white;
   position: absolute;
   left: 30%;
 }
-.scroll-container{
+.scroll-container {
   position: absolute;
   top: 18px;
 }
-.scroll-box .rows{
+.scroll-box .rows {
   height: 420px;
 }
 </style>
