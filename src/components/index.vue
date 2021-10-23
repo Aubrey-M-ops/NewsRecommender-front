@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-    <div style="color:white">{{ test }}</div>
     <div class="header-container">
       <dv-decoration-12
         style="position:absolute;width:150px;height:150px;display:inline-block;top: 30px;
@@ -19,6 +18,7 @@
             <i
               slot="suffix"
               @click="getUserNews"
+              @Enter="getUserNews"
               class="el-input__icon el-icon-search"
             >
             </i>
@@ -94,8 +94,8 @@ export default {
         oddRowBGC: "transparent",
         evenRowBGC: "transparent",
         align: ["left"],
-        columnWidth: [80]
-      },
+        columnWidth: [120]
+      }
     };
   },
   beforeCreate() {
@@ -103,27 +103,22 @@ export default {
       .querySelector("body")
       .setAttribute("style", "background-color:#282C34");
   },
-  created() {
-    console.log("我是wr");
-    this.getTest();
-    // this.getNews();
-  },
   watch: {
     userNews(val) {
       let arr = val;
-      console.log("watch",val);
-      let nowData = this.userConfig
-      nowData.data = arr
-      this.userConfig = {...nowData}
-      console.log("nowdata",nowData)
+      console.log("userwatch", val);
+      let nowData = this.userConfig;
+      nowData.data = arr;
+      this.userConfig = { ...nowData };
+      console.log("nowdata", nowData);
     },
     hotNews(val) {
       let arr = val;
-      console.log("watch",val);
-      let nowData = this.hotConfig
-      nowData.data = arr
-      this.hotConfig = {...nowData}
-      console.log("nowdata",nowData)
+      console.log("hotwatch", val);
+      let nowData = this.hotConfig;
+      nowData.data = arr;
+      this.hotConfig = { ...nowData };
+      console.log("nowdata", nowData);
     }
   },
   methods: {
@@ -139,37 +134,37 @@ export default {
         });
     },
     getUserNews() {
+      //user
       console.log("getUSERnews");
       this.axios
         .get("/" + this.userId)
         .then(res => {
           console.log("connect");
           const news = res.data;
-          console.log(news);
+          console.log("user", news);
           for (let i = 0; i < news.length; i++) {
-            this.userNews.push([news[i].postTime.slice(0,10),news[i].title]);
+            this.userNews.push([news[i].postTime.slice(0, 10), news[i].title]);
           }
         })
         .catch(err => {
           console.error("err");
         });
-    },
-    getUserNews() {
+      //hot
       console.log("getHOTnews");
       this.axios
         .get("/hot" + this.userId)
         .then(res => {
           console.log("connect");
           const news = res.data;
-          console.log(news);
+          console.log("hot", news);
           for (let i = 0; i < news.length; i++) {
-            this.hotNews.push([news[i].postTime.slice(0,10),news[i].title]);
+            this.hotNews.push([news[i].postTime.slice(0, 10), news[i].title]);
           }
         })
         .catch(err => {
           console.error("err");
         });
-    },
+    }
   }
 };
 </script>
