@@ -1,8 +1,5 @@
 <template>
   <div class="container">
-    <div style="color:white">
-      {{ news }}
-    </div>
     <div style="color:white">{{ test }}</div>
     <div class="header-container">
       <dv-decoration-12
@@ -18,7 +15,7 @@
       <div class="id">
         <h3 style="display:inline-block">userID:</h3>
         <div class="input">
-          <el-input type="text" placeholder="请输入用户ID" v-model="text">
+          <el-input type="text" placeholder="请输入用户ID" v-model="userId">
             <i
               slot="suffix"
               @click="getUserNews"
@@ -76,51 +73,21 @@ export default {
   data() {
     return {
       test: "",
-      userId : "",
-      userNews:[],
-      hotNews:[],
+      userId: "",
+      hotNews: [],
+      userNews: [],
       userConfig: {
-        data: [
-          // ["1", "西飞集团收购奥地利FACC公司完成股权交割'"],
-          // ["2", "西飞集团收购奥地利FACC公司完成股权交割'"],
-          // ["1", "西飞集团收购奥地利FACC公司完成股权交割'"],
-          // ["2", "西飞集团收购奥地利FACC公司完成股权交割'"],
-          // ["1", "西飞集团收购奥地利FACC公司完成股权交割'"],
-          // ["2", "西飞集团收购奥地利FACC公司完成股权交割'"],
-          // ["1", "西飞集团收购奥地利FACC公司完成股权交割'"],
-          // ["2", "2"],
-          // ["1", "1"],
-          // ["2", "2"],
-          // ["1", "1"],
-          // ["2", "2"],
-          // ["1", "1"],
-          // ["2", "2"]
-        ],
+        data: [],
         rowNum: 8,
         hoverPause: true,
         headerBGC: "transparent",
         oddRowBGC: "transparent",
         evenRowBGC: "transparent",
         align: ["left"],
-        columnWidth: [80]
+        columnWidth: [120]
       },
       hotConfig: {
-        data: [
-          ["1", "1"],
-          ["2", "2"],
-          ["1", "1"],
-          ["2", "2"],
-          ["1", "1"],
-          ["2", "2"],
-          ["1", "1"],
-          ["2", "2"],
-          ["1", "1"],
-          ["2", "2"],
-          ["1", "1"],
-          ["2", "2"],
-          ["1", "1"],
-          ["2", "2"]
-        ],
+        data: [],
         rowNum: 7,
         hoverPause: true,
         headerBGC: "transparent",
@@ -129,7 +96,6 @@ export default {
         align: ["left"],
         columnWidth: [80]
       },
-      news: []
     };
   },
   beforeCreate() {
@@ -140,7 +106,25 @@ export default {
   created() {
     console.log("我是wr");
     this.getTest();
-    this.getNews();
+    // this.getNews();
+  },
+  watch: {
+    userNews(val) {
+      let arr = val;
+      console.log("watch",val);
+      let nowData = this.userConfig
+      nowData.data = arr
+      this.userConfig = {...nowData}
+      console.log("nowdata",nowData)
+    },
+    hotNews(val) {
+      let arr = val;
+      console.log("watch",val);
+      let nowData = this.hotConfig
+      nowData.data = arr
+      this.hotConfig = {...nowData}
+      console.log("nowdata",nowData)
+    }
   },
   methods: {
     getTest() {
@@ -157,23 +141,35 @@ export default {
     getUserNews() {
       console.log("getUSERnews");
       this.axios
-        .get("/"+this.userId)
+        .get("/" + this.userId)
         .then(res => {
           console.log("connect");
-          console.log(res.data);
-          const news = res.data
-          for(let i=0; i<news.length; i++){
-            this.userNews.push[news[i].id,news[i].title]
+          const news = res.data;
+          console.log(news);
+          for (let i = 0; i < news.length; i++) {
+            this.userNews.push([news[i].postTime.slice(0,10),news[i].title]);
           }
-
         })
         .catch(err => {
           console.error("err");
         });
     },
-    getHotNews() {
-
-    }
+    getUserNews() {
+      console.log("getHOTnews");
+      this.axios
+        .get("/hot" + this.userId)
+        .then(res => {
+          console.log("connect");
+          const news = res.data;
+          console.log(news);
+          for (let i = 0; i < news.length; i++) {
+            this.hotNews.push([news[i].postTime.slice(0,10),news[i].title]);
+          }
+        })
+        .catch(err => {
+          console.error("err");
+        });
+    },
   }
 };
 </script>
