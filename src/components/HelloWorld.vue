@@ -9,10 +9,7 @@
         style="position:absolute;width:150px;height:150px;display:inline-block;top: 30px;
     left: 30px;"
       />
-      <dv-decoration-1
-        style="width:200px;height:50px;"
-        class="top-dec"
-      />
+      <dv-decoration-1 style="width:200px;height:50px;" class="top-dec" />
       <h1>News Recommender</h1>
       <dv-decoration-1 style="width:200px;height:50px;" class="top-dec" />
     </div>
@@ -20,19 +17,16 @@
     <div class="userid">
       <div class="id">
         <h3 style="display:inline-block">userID:</h3>
-      </div>
-      <div class="input">
-        <el-input
-          type="text"
-          placeholder="请输入用户ID"
-          v-model="userID"
-          maxlength="10"
-          show-word-limit
-        >
-        </el-input>
-      </div>
-      <div class="search">
-        <el-button icon="el-icon-search" circle></el-button>
+        <div class="input">
+          <el-input type="text" placeholder="请输入用户ID" v-model="text">
+            <i
+              slot="suffix"
+              @click="getUserNews"
+              class="el-input__icon el-icon-search"
+            >
+            </i>
+          </el-input>
+        </div>
       </div>
       <div class="decoration-6-left">
         <dv-decoration-6
@@ -206,6 +200,7 @@ h3 {
   align-items: center;
   flex-direction: row;
   justify-content: center;
+  margin-top: 48px;
 }
 .userbox {
   height: 480px;
@@ -228,7 +223,7 @@ h3 {
 }
 .userid {
   position: relative;
-  margin: 60px 100px 0px 160px;
+  margin: 60px 100px 0px 196px;
 }
 .id {
   display: inline-block;
@@ -304,5 +299,8 @@ h3 {
 }
 .scroll-box .rows {
   height: 420px;
+}
+.el-input__icon:hover {
+  cursor: pointer;
 }
 </style>
